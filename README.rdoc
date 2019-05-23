@@ -1,0 +1,58 @@
+== Bem-vindo à aplicação de teste
+
+Esta é a aplicação de teste para a vaga de desenvolvedor Ruby on Rails na Enjoei :P
+
+A aplicação é uma caixa de mensagens na qual o usuário pode escrever mensagens, lê-las e arquiva-las.
+
+=== Features do sistema
+
+- Ao escrever uma mensagem ela será exibida na lista inicial, as mensagens não lidas serão exibidas em negrito.
+- Para ler uma mensagem basta clicar no título dela.
+- As mensagens nunca devem ser apagadas, mas ao remover uma mensagem ela deve ser marcada como arquivada na base de dados.
+- Mensagens arquivadas não devem ser exibidas na lista de mensagens.
+
+== Como funciona o teste
+
+A partir do momento do recebimento dela você tem 2:30h para entregar uma versão executável cumprindo os requisitos dispostos mais abaixo.
+
+=== O que será avaliado
+
+1. Entendimento dos requisitos
+2. Clareza do código
+3. Testes
+4. Capacidade de dar manutenção em código já existente
+5. Controle de versão utilizando git
+
+=== Requisitos
+
+Os requisitos estão ordernados abaixo de acordo com a importância dos mesmos, levaremos em consideração os requisitos que possuem maior
+prioridade.
+
+1. Criar botão para arquivar todas as mensagens utilizando AJAX
+
+  Hoje na lista de mensagens é permitido arquivar uma mensagem ao clicar em "Remover", porém algumas vezes
+  o usuário quer arquivar todas as mensagens de uma só vez.
+
+  Portanto você deve criar um botão antes do botão "Escrever mensagem" chamado "Remover todas" que deve arquivar
+  todas as mensagens de uma só vez.
+
+  IMPORTANTE: Essa ação deve ser feita via AJAX usando o padrão Spark, desenvolvido pela Enjoei :P, conforme exemplo
+  que pode ser encontrado dentro de app/assets/javascripts/pages.
+
+2. Salvar data em que uma mensagem foi arquivada
+
+  No momento em que você lê uma mensagem a data da leitura é salva na base.
+
+  Precisamos salvar a data em uma mensagem foi arquivada.
+
+3. A lista de mensagens deve ser ordenada por data de criação em ordem decrescente
+
+   Hoje a lista está sem qualquer ordernação o que dificulta a visualização da mesma.
+   A lista de mensagens deve ser ordenada pela data de criação de forma decrescente.
+
+=== Sobre a entrega
+
+- Caso o e-mail seja entregue após a data combinada será descartado, é preferível receber uma versão incompleta à receber o email
+  atrasado
+- Todos os testes devem estar passando
+- O resultado da avaliação será informado pelo recrutador em momento oportuno

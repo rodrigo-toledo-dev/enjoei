@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Caixa de mensagens</h1>
+
+<p class="actions">
+  <%= link_to 'Escrever mensagem', new_message_path, class: "btn btn-primary"  %>
+</p>
+
+<table class="table">
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td class="message--<%= message.state %>">
+          <%= link_to message.title, message %>
+        </td>
+        <td>
+          <%= link_to 'Remover', archive_message_url(message, format: :json), class: 'js-archive-message' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
