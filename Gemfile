@@ -48,3 +48,7 @@ group :development, :test do
   gem 'spring'
 end
 
+group :development do
+  gem 'guard' # NOTE: this is necessary in newer versions
+  gem 'guard-minitest'
+end
