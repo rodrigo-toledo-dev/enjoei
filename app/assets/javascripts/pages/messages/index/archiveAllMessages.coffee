@@ -1,23 +1,23 @@
 App.messages.index = App.messages.index || {}
 
-class App.messages.index.archiveMessage
+class App.messages.index.archiveAllMessages
 
   constructor: (@options = {}) ->
     @make()
     @bind()
 
   make: () ->
-    @elementClass = '.js-archive-message'
+    @elementClass = '.js-archive-all-messages'
     @$element = $(@elementClass)
 
   bind: () ->
     @$element.on 'click', (event) =>
-      @row = $(event.target).closest('tr')
+      @rows = $('.table tr')
       event.preventDefault()
       $.ajax({
         url: @$element.attr('href'),
-        type: 'put'
+        type: 'get'
       }).always( =>
-        @row.remove()
-        $('#notice').html('Mensagem removida.')
+        @rows.remove()
+        $('#notice').html('Mensagens removidas.')
       )

@@ -8,3 +8,7 @@ two:
   title: MyString
   content: MyText
   state: read
+three:
+  title: MyString
+  content: MyText
+  state: unread

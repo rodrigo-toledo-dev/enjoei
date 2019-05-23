@@ -4,6 +4,7 @@
 
 <p class="actions">
   <%= link_to 'Escrever mensagem', new_message_path, class: "btn btn-primary"  %>
+  <%= link_to 'Remover todas', archive_all_messages_path(format: :json), class: "btn btn-danger js-archive-all-messages"  %>
 </p>
 
 <table class="table">

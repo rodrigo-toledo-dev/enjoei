@@ -15,5 +15,16 @@ class Message < ActiveRecord::Base
     after_transition to: :read do |message|
       message.read_at = Time.current
     end
+
+    after_transition to: :archive do |message|
+      message.archived_at = Time.current
+    end
+  end
+
+  def self.archive_all
+    messages = Message.all
+    messages.each do |message|
+      message.archive
+    end
   end
 end

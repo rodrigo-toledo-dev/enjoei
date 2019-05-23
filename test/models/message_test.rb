@@ -34,4 +34,15 @@ class MessageTest < ActiveSupport::TestCase
     assert message.read?
     assert message.read_at.present?
   end
+
+  test "archive all messages" do
+    message = messages(:one)
+    message_two = messages(:two)
+    message_three = messages(:three)
+
+    Message.archive_all
+    assert message.reload.archived?
+    assert message_two.reload.archived?
+    assert message_three.reload.archived?
+  end
 end
