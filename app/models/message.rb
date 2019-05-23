@@ -14,10 +14,12 @@ class Message < ActiveRecord::Base
 
     after_transition to: :read do |message|
       message.read_at = Time.current
+      message.save
     end
 
     after_transition to: :archive do |message|
       message.archived_at = Time.current
+      message.save
     end
   end
 
