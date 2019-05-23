@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     member do
       put :archive
     end
+    collection do
+      get :archive_all
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

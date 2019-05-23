@@ -3,6 +3,7 @@ require 'test_helper'
 class MessagesControllerTest < ActionController::TestCase
   setup do
     @message = messages(:one)
+    @message_three = messages(:three)
   end
 
   test "should get index" do
@@ -45,6 +46,15 @@ class MessagesControllerTest < ActionController::TestCase
     patch :archive, id: @message
 
     assert @message.reload.archived?
+
+    assert_redirected_to messages_path
+  end
+
+  test "should archive all messages" do
+    get :archive_all
+
+    assert @message.reload.archived?
+    assert @message_three.reload.archived?
 
     assert_redirected_to messages_path
   end
