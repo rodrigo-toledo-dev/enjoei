@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   root "messages#index"
   resources :messages, except: :destroy do
     member do
-      put :archive
+      delete :archive
     end
     collection do
-      get :archive_all
+      delete :archive_all
     end
   end
 

@@ -43,7 +43,7 @@ class MessagesControllerTest < ActionController::TestCase
   end
 
   test "should archive message" do
-    patch :archive, id: @message
+    delete :archive, id: @message
 
     assert @message.reload.archived?
 
@@ -51,7 +51,7 @@ class MessagesControllerTest < ActionController::TestCase
   end
 
   test "should archive all messages" do
-    get :archive_all
+    delete :archive_all
 
     assert @message.reload.archived?
     assert @message_three.reload.archived?

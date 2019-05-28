@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.where.not(state: :archived).order('created_at DESC')
+    @messages = Message.where.not(state: :archived).order(created_at: :desc)
   end
 
   # GET /messages/1

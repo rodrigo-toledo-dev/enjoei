@@ -16,7 +16,7 @@ class App.messages.index.archiveAllMessages
       event.preventDefault()
       $.ajax({
         url: @$element.attr('href'),
-        type: 'get'
+        type: 'delete'
       }).always( =>
         @rows.remove()
         $('#notice').html('Mensagens removidas.')
