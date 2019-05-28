@@ -1,7 +1,4 @@
 class Message < ActiveRecord::Base
-
-  after_update :update_status
-
   validates :title, :content, presence: true
 
   state_machine :state, initial: :unread do
@@ -14,31 +11,21 @@ class Message < ActiveRecord::Base
       transition any => :archived
     end
 
-    after_transition to: :read do |message|
-      message.read_at = Time.current
-      message.save
-    end
-
-    after_transition to: :archive do |message|
-      message.archived_at = Time.current
-      message.save
-    end
+    before_transition :on => :read, :do => :read_message
+    before_transition :on => :archive, :do => :archive_message
   end
 
   def self.archive_all
-    messages = Message.all
-    messages.each do |message|
+    Message.find_each do |message|
       message.archive
     end
   end
-  
 
-  def update_status
-    message = self.reload
-    if message.read? && message.read_at.blank?
-      message.update_attribute(:read_at, Time.now)
-    elsif message.archived? && message.archived_at.blank?
-      message.update_attribute(:archived_at, Time.now)
-    end
+  def read_message
+    self.read_at = Time.now
+  end
+
+  def archive_message
+    self.archived_at = Time.now
   end
 end

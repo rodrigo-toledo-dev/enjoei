@@ -4,7 +4,7 @@
 
 <p class="actions">
   <%= link_to 'Escrever mensagem', new_message_path, class: "btn btn-primary"  %>
-  <%= link_to 'Remover todas', archive_all_messages_path(format: :json), class: "btn btn-danger js-archive-all-messages"  %>
+  <%= link_to 'Remover todas', archive_all_messages_path, class: "btn btn-danger js-archive-all-messages"  %>
 </p>
 
 <table class="table">
@@ -15,7 +15,7 @@
           <%= link_to message.title, message %>
         </td>
         <td>
-          <%= link_to 'Remover', archive_message_url(message, format: :json), class: 'js-archive-message' %>
+          <%= link_to 'Remover', archive_message_url(message), class: 'js-archive-message' %>
         </td>
       </tr>
     <% end %>
